@@ -12,7 +12,7 @@ class UNCTestCase(unittest.TestCase):
     """UNC to URL Converter tests."""
 
     UNC = "\\\\example.org\\acme\\data\\Regelmäßige Meetings\\path"
-    URL = "smb://example.org/acme/data/Regelm%C3%A4%C3%9Fige%20Meetings/path"
+    URL = "smb://example.org/acme/data/Regelmäßige%20Meetings/path"
     FILE = "file://example.org/acme/data/Regelmäßige%20Meetings/path"
 
     def test_unc_to_url(self):

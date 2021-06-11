@@ -4,6 +4,8 @@
 from __future__ import print_function
 import sys
 
+sys.path.insert(0, "./lib")  # for Alfred Workflow
+
 import argparse
 import unicodedata
 from urllib.parse import quote, unquote
@@ -12,7 +14,6 @@ import argcomplete  # type: ignore
 
 # from . import __version__
 __version__ = "0.0.2"  # for Alfred Workflow
-sys.path.insert(0, "./lib")  # for Alfred Workflow
 
 
 def main(args=None):
@@ -30,10 +31,9 @@ def unc_to_url(unc: str, as_file: bool = False):
     """Convert UNC to file or smb URL."""
     unc = unicodedata.normalize("NFC", unc).strip()  # e.g., for the Alfred Workflow
     url = unc.replace("\\\\", "smb://").replace("\\", "/")
-    if as_file:  # for Windows 10, but don't encode Umlauts
-        url = url.replace("smb://", "file://").replace(" ", "%20")
-    else:  # for macOS / Linux
-        url = quote(url, safe=":/")
+    if as_file:  # for Windows 10
+        url = url.replace("smb://", "file://")
+    url = url.replace(" ", "%20")  # don't encode Umlauts
     return url
 
 

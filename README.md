@@ -51,3 +51,9 @@ optional arguments:
   -f, --file     File URL (file://)
   --version, -v  show program's version number and exit
 ```
+
+## Alfred Workflow
+
+To activate this workflow use the default keyword ```unc2url``` and enter the UNC you want to get translated. You can also press ⌘+⇧+U to translate what is in your clipboard. Pressing Enter will copy the translations to the clipboard. Pressing ⇧+Enter will open the SMB link.
+
+![Alfred](resources/alfred.png)

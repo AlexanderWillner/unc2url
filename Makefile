@@ -1,6 +1,7 @@
 MAIN=unc2url
 SRC_CORE=unc2url
 SRC_TEST=tests
+RESOURCES=resources
 PYTHON=python3
 PYDOC=pydoc3
 PIP=pip3
@@ -115,3 +116,9 @@ upload: build ## Upload the code
 	@echo "See: https://packaging.python.org/specifications/pypirc/#using-a-pypi-token"
 	@echo "########################"
 	@twine upload dist/$(APP)*
+
+workflow: ## Build Alred Worklow
+	@rm -f $(MAIN).alfredworkflow
+	@zip -j $(MAIN).alfredworkflow $(RESOURCES)/icon.png $(RESOURCES)/info.plist $(SRC_CORE)/$(MAIN).py
+	@cd $(RESOURCES) && zip -r ../$(MAIN).alfredworkflow lib
+

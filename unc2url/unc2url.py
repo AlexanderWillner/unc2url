@@ -12,7 +12,7 @@ sys.path.insert(0, "./lib")  # for Alfred Workflow
 import argcomplete  # type: ignore # noqa: E402 # pylint: disable=C0413
 
 # from . import __version__
-__version__ = "0.0.2"  # for Alfred Workflow
+__version__ = "0.1.0"  # for Alfred Workflow
 
 
 def main(args=None):

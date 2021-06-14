@@ -9,7 +9,7 @@ import unicodedata
 # from urllib.parse import unquote
 
 sys.path.insert(0, "./lib")  # for Alfred Workflow
-import argcomplete  # type: ignore # noqa: E402
+import argcomplete  # type: ignore # noqa: E402 # pylint: disable=C0413
 
 # from . import __version__
 __version__ = "0.0.2"  # for Alfred Workflow
@@ -28,7 +28,8 @@ def main(args=None):
 
 def unc_to_url(unc: str, as_file: bool = False):
     """Convert UNC to file or smb URL."""
-    unc = unicodedata.normalize("NFC", unc).strip()  # e.g., for the Alfred Workflow
+    # normalize for the Alfred Workflow
+    unc = unicodedata.normalize("NFC", unc).strip()  # pylint: disable=I1101
     url = unc.replace("\\\\", "smb://").replace("\\", "/")
     if as_file:  # for Windows 10
         url = url.replace("smb://", "file://")

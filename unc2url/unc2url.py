@@ -3,14 +3,13 @@
 
 from __future__ import print_function
 import sys
-
-sys.path.insert(0, "./lib")  # for Alfred Workflow
-
 import argparse
 import unicodedata
-from urllib.parse import quote, unquote
 
-import argcomplete  # type: ignore
+# from urllib.parse import unquote
+
+sys.path.insert(0, "./lib")  # for Alfred Workflow
+import argcomplete  # type: ignore # noqa: E402
 
 # from . import __version__
 __version__ = "0.0.2"  # for Alfred Workflow
@@ -43,7 +42,8 @@ def url_to_unc(url: str):
     url = url.replace("smb://", "\\\\")
     url = url.replace("file://", "\\\\")
     url = url.replace("/", "\\")
-    return unquote(url)
+    url = url.replace("%20", " ")
+    return url
 
 
 def get_parser():

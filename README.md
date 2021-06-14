@@ -34,7 +34,7 @@ smb://example.org/foo/bar
 % unc2url --file '\\example.org\foo\bar'
 file://example.org/foo/bar
 
-% unc2url --reverse 'file://example.org/foo/bar' 
+% unc2url --reverse 'file://example.org/foo/bar'
 \\example.org\foo\bar
 
 % unc2url -h
@@ -54,6 +54,6 @@ optional arguments:
 
 ## Alfred Workflow
 
-To activate this workflow use the default keyword ```unc2url``` and enter the UNC you want to get translated. You can also press ⌘+⇧+U to translate what is in your clipboard. Pressing Enter will copy the translations to the clipboard. Pressing ⇧+Enter will open the SMB link.
+To activate this workflow use the default keyword ```unc2url``` and enter the UNC you want to get translated. You can also press a hotkey (⌘+⇧+U, but this has to be configured by the user) to translate what is in your clipboard. Pressing Enter will copy the translations to the clipboard. Pressing ⇧+Enter will open the SMB link.
 
 ![Alfred](resources/alfred.png)
